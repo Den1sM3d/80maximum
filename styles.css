@@ -1,0 +1,29 @@
+body{
+    background: rgb(53, 179, 18);
+}
+
+img{
+    height: 200px;
+    width: 200px;
+    border-radius: 20px;
+
+}
+p{
+    color: rgb(243, 56, 193);
+    font-size: 30px;
+    border: 5px solid white;
+    border-radius: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+    padding: 50px;
+    margin: 100px;
+}
+span{
+    font-weight: bold;
+    font-style: italic;
+}
+
+.youtube{
+    height: 500px;
+    width: 500px;
+}
