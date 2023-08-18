@@ -10,7 +10,7 @@ class Advertisement(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     
     def __str__(self):
-        return f"{self.title} {self.price}"
+        return f"Advertisements(id={self.id} title={self.title} price={self.price}"
 
     class Meta:
         db_table = "advertisements"
