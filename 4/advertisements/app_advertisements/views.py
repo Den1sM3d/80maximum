@@ -1,5 +1,9 @@
 from django.shortcuts import render
 from .models import Advertisement
+from .forms import AdvertisementForm
+from django.urls import reverse
+from django.shortcuts import redirect
+from django.contrib import admin
 
 # Create your views here.
 
@@ -10,3 +14,17 @@ def example(request):
 
 def top_sellers(request):
     return render(request, 'top-sellers.html')
+
+def advertisement_post(request):
+    if request.method == 'POST':
+        form = AdvertisementForm(request.POST, request.FILES)
+        if form.is_valid():
+            advertisement = Advertisement.objects.get(pk=1)
+            form = AdvertisementForm(instance=advertisement)
+            url = reverse("main-page")
+            return redirect(url)
+    else:
+        form = AdvertisementForm()
+
+    context = {"form": form}
+    return render(request, "advertisement-post.html", context)
