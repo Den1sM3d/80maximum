@@ -12,14 +12,9 @@ class AdvertisementForm(ModelForm):
             'auction': CheckboxInput(attrs={"class": "form-check-input"}),
             'image': FileInput(attrs={"class": "form-control form-control-lg"})
         }
-
-        def clean_title(self):
-            title = self.cleaned_data['title']
-            if Advertisement.objects.filter(title.startswith("?")).exists():
-                raise ValidationError('Название нельзя начинать с ? знана ')
-            return title
-
-form = AdvertisementForm()
-
-advertisement = Advertisement.objects.get(pk=1)
-form = AdvertisementForm(instance=advertisement)
+    
+    def clean_title(self):
+        title = self.cleaned_data.get('title')
+        if title and title.startswith("?"):
+            raise ValidationError("Нельзя начинать заголовок с '?' знака")
+        return title
